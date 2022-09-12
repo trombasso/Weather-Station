@@ -1,0 +1,16 @@
+    :root {
+    --bg-color: rgb(000, 000, 000);
+    --font-color: rgb(0, 255, 42);
+    
+}
+
+body, html {
+    background-color: var(--bg-color);
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100%;
+    color: var(--font-color);
+
+}
