@@ -1,7 +1,7 @@
 # Flask
 from flask import Flask, render_template, url_for, redirect, flash
 
-from weather import Netatmo, Met_data
+from weather_new import Netatmo, Met_data
 
 app = Flask(__name__)
 
@@ -26,12 +26,13 @@ t = tiden()
 
 print(t())
 
+
 # Routes -----------------------------------------------------------------------------------
 @app.route("/")
 def home():
-    bodo_data()
-    bodo = bodo_data.met_data
-    return render_template("home.html", net_data=netatmo_data, bodo=bodo, t=t)
+    bodo_data.update_data()
+    netatmo_data.update_data()
+    return render_template("home.html", netatmo_data=netatmo_data, bodo_data=bodo_data, t=t)
 
 
 if __name__ == "__main__":

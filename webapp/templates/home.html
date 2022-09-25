@@ -4,37 +4,53 @@
 
 <h1>Heime</h1>
 <table>
-<tr><td><b>{{ net_data()['name_outside'] }}</b></td></tr>
-<tr><td>Luftrykk:</td><td>{{net_data()["pressure"] }} mbar</td></tr>
-<tr><td>Temperatur:</td><td>{{ net_data()["temp_outside"] }} °c</td></tr>
-<tr><td>Luftfuktighet</td><td>{{ net_data()["humidity_outside"] }} %</td></tr>
-<tr><td>Temperaturtrend</td><td>{{ net_data()["temptrend_outside"] }}</td></tr>
+<tr><td><b>{{ netatmo_data.name_outside }}</b></td></tr>
+<tr><td>Luftrykk:</td><td>{{netatmo_data.pressure }} mbar</td></tr>
+<tr><td>Abs. Luftrykk:</td><td>{{netatmo_data.absolute_pressure }} mbar</td></tr>
+<tr><td>Luftrykk trend:</td><td>{{netatmo_data.pressure_trend }}</td></tr>
+<tr><td>Temperatur:</td><td>{{ netatmo_data.temp_outside }} °c</td></tr>
+<tr><td>Min-Temp:</td><td>{{ netatmo_data.mintemp_outside }} °c</td></tr>
+<tr><td>Max-Temp:</td><td>{{ netatmo_data.maxtemp_outside }} °c</td></tr>
+<tr><td>Luftfuktighet</td><td>{{ netatmo_data.humidity_outside }} %</td></tr>
+<tr><td>Temperaturtrend</td><td>{{ netatmo_data.temptrend_outside }}</td></tr>
+<tr><td>Batteri</td><td>{{ netatmo_data.battery_percent_outside }} %</td></tr>
 <tr><td colspan="2"><hr></td></tr>
-<tr><td><b>{{ net_data()["name_livingroom"] }}</b></td></tr>
-<tr><td>Temp:</td><td>{{ net_data()["temp_livingroom"] }} °c</td></tr>
-<tr><td>CO2:</td><td>{{ net_data()["co2_livingroom"] }} ppm</td></tr>
-<tr><td>Fuktighet:</td><td>{{ net_data()["humidity_livingroom"] }} %</td></tr>
-<tr><td>Støy:</td><td>{{ net_data()["noise_livingroom"] }} dB</td></tr>
+
+<tr><td><b>{{ netatmo_data.name_livingroom }}</b></td></tr>
+<tr><td>Temperatur:</td><td>{{ netatmo_data.temp_livingroom }} °c</td></tr>
+<tr><td>Min-Temp:</td><td>{{ netatmo_data.tempmin_livingroom }} °c</td></tr>
+<tr><td>Max-Temp:</td><td>{{ netatmo_data.tempmax_livingroom }} °c</td></tr>
+<tr><td>Temptrend:</td><td>{{ netatmo_data.temptrend_livingroom }} °c</td></tr>
+<tr><td>CO2:</td><td>{{ netatmo_data.co2_livingroom }} ppm</td></tr>
+<tr><td>Fuktighet:</td><td>{{ netatmo_data.humidity_livingroom }} %</td></tr>
+<tr><td>Støy:</td><td>{{ netatmo_data.noise_livingroom }} dB</td></tr>
+<tr><td>WiFi:</td><td>{{ netatmo_data.wifi_status_livingroom }} %</td></tr>
+
 <tr><td colspan="2"><hr></td></tr>
-<tr><td><b>{{ net_data()["name_bedroom"] }}</b></td></tr>
-<tr><td>Temp</td><td>{{ net_data()["temp_bedroom"] }} °c</td></tr>
-<tr><td>Luftfuktighet</td><td>{{ net_data()["humidity_bedroom"] }} %</td></tr>
-<tr><td>Temp trend</td><td>{{ net_data()["temptrend_bedroom"] }}</td></tr>
+<tr><td><b>{{ netatmo_data.name_bedroom }}</b></td></tr>
+<tr><td>Temp</td><td>{{ netatmo_data.temp_bedroom }} °c</td></tr>
+<tr><td>Min-Temp</td><td>{{ netatmo_data.mintemp_bedroom }} °c</td></tr>
+<tr><td>Max-Temp</td><td>{{ netatmo_data.maxtemp_bedroom }} °c</td></tr>
+<tr><td>Luftfuktighet</td><td>{{ netatmo_data.humidity_bedroom }} %</td></tr>
+<tr><td>Temp trend</td><td>{{ netatmo_data.temptrend_bedroom }}</td></tr>
+<tr><td>Batteri</td><td>{{ netatmo_data.battery_percent_bedroom }} %</td></tr>
 </table>
+
 <hr>
+
 <h1>Bodø</h1>
 <table>
 <tr><td><b>Været nå</b></td></tr>
-<tr><td>Lufttrykk:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["instant"]["details"]["air_pressure_at_sea_level"] }} mbar</td></tr>
-<tr><td>Temperatur:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["instant"]["details"]["air_temperature"] }} °c</td></tr>
-<tr><td>Skydekning:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["instant"]["details"]["cloud_area_fraction"] }} %</td></tr>
-<tr><td>Luftfuktighet:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["instant"]["details"]["relative_humidity"] }} %</td></tr>
-<tr><td>Vindretning:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["instant"]["details"]["wind_from_direction"] }} °</td></tr>
-<tr><td>Hastighet:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["instant"]["details"]["wind_speed"] }} m/s</td></tr>
+<tr><td>Lufttrykk:</td><td>{{ bodo_data.lufttrykk }} mbar</td></tr>
+<tr><td>Temperatur:</td><td>{{ bodo_data.temperatur }} °c</td></tr>
+<tr><td>Skydekning:</td><td>{{ bodo_data.skydekning }} %</td></tr>
+<tr><td>Luftfuktighet:</td><td>{{ bodo_data.luftfuktighet }} %</td></tr>
+<tr><td>Vindretning:</td><td>{{ bodo_data.vindretning }} °</td></tr>
+<tr><td>Hastighet:</td><td>{{ bodo_data.vindhastighet }} m/s</td></tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr><td><b>Nedbør</b></td></tr>
-<tr><td>Neste timen</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["next_1_hours"]["details"]["precipitation_amount"] }} mm</td></tr>
-<tr><td>Neste 6 timer:</td><td>{{ bodo["properties"]["timeseries"][0]["data"]["next_6_hours"]["details"]["precipitation_amount"] }} mm</td></tr>
+<tr><td>Neste timen</td><td>{{ bodo_data.neste_timen }} mm</td></tr>
+<tr><td>Neste 6 timer:</td><td>{{ bodo_data.neste_6_timer }} mm</td></tr>
 </table>
 <br><br>
 Oppdatert: {{ t() }}

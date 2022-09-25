@@ -85,7 +85,6 @@ class Netatmo:
         return self.__netatmo_output
 
     def exchange_code(self):
-
         data = {
             "client_id": self.CLIENT_ID,
             "client_secret": self.CLIENT_SECRET,
@@ -145,5 +144,12 @@ def testfunc(data):
     data()
 
 
+def main():
+    weather = Netatmo()
+    print(type(weather))
+
+    print(weather.netatmo_output)
+
+
 if __name__ == "__main__":
-    pass
+    main()
